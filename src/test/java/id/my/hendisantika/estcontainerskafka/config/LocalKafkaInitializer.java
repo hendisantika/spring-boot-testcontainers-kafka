@@ -3,6 +3,7 @@ package id.my.hendisantika.estcontainerskafka.config;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Configuration;
+import org.testcontainers.shaded.org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Created by IntelliJ IDEA.
@@ -17,4 +18,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class LocalKafkaInitializer implements
         ApplicationContextInitializer<ConfigurableApplicationContext> {
+
+    @Override
+    public void initialize(@NonNull ConfigurableApplicationContext context) {
+        kafkaLocalSetup(context);
+    }
 }
