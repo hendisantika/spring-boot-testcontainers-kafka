@@ -1,5 +1,10 @@
 package id.my.hendisantika.estcontainerskafka.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -28,11 +33,29 @@ import java.util.concurrent.CompletableFuture;
 @RestController
 @RequestMapping("/kafka/topic")
 @RequiredArgsConstructor
+@Tag(name = "Kafka", description = "Endpoint for managing Kafka Message")
 public class KafkaController {
     private static final String TOPIC = "kafka_topic";
     private final KafkaTemplate<String, String> kafkaTemplate;
 
     @GetMapping(path = "/{message}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(
+            summary = "Get All Tutorials Data",
+            description = "Get All Tutorials Data.",
+            tags = {"Tutorial"})
+    @ApiResponses(value = {
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(
+                    description = "Success",
+                    responseCode = "200",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation =
+                            String.class))
+            ),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Not found", responseCode = "404",
+                    content = @Content),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(description = "Internal error", responseCode = "500"
+                    , content = @Content)
+    }
+    )
     public ResponseEntity<String> sendMessage(@PathVariable("message") String message) {
         CompletableFuture<SendResult<String, String>> future = kafkaTemplate.send(TOPIC, "key",
                 message);
