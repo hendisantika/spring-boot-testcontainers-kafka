@@ -15,9 +15,11 @@ spring:
 # Swagger
 springdoc:
   api-docs:
+    path: /swagger-ui
     enabled: true
   swagger-ui:
     enabled: true
+    path: /v3/api-doc
 # Kafka Configuration
 kafka:
   config:
@@ -35,10 +37,5 @@ kafka:
     login-conf: dummy
     security-protocol: PLAINTEXT
 
-  springdoc:
-    api-docs:
-      path: /v3/api-doc
-    swagger-ui:
-      path: /swagger-ui
-  application-description: '@project.description@'
-  application-version: '@project.version@
+application-description: '@project.description@'
+application-version: '@project.version@'
