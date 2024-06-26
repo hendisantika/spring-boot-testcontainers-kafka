@@ -1,4 +1,4 @@
-package id.my.hendisantika.estcontainerskafka.config;
+package id.my.hendisantika.testcontainerskafka.config;
 
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -36,7 +36,8 @@ public class LocalKafkaInitializer implements
     private void kafkaLocalSetup(ConfigurableApplicationContext context) {
         ConfigurableEnvironment environment = context.getEnvironment();
         KafkaContainer kafka = new KafkaContainer(
-                DockerImageName.parse("confluentinc/cp-kafka:7.2.2.arm64"))
+//                DockerImageName.parse("confluentinc/cp-kafka:7.2.2.arm64"))
+                DockerImageName.parse("confluentinc/cp-kafka:7.6.1"))
                 .withEnv("KAFKA_AUTO_CREATE_TOPICS_ENABLE", "true")
                 .withEnv("KAFKA_CREATE_TOPICS", "kafka_topic");
         kafka.start();
