@@ -1,4 +1,4 @@
-package id.my.hendisantika.estcontainerskafka.config;
+package id.my.hendisantika.testcontainerskafka.config;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;

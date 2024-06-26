@@ -1,4 +1,4 @@
-package id.my.hendisantika.estcontainerskafka.config;
+package id.my.hendisantika.testcontainerskafka.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import org.springframework.beans.factory.annotation.Value;

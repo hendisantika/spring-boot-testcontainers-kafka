@@ -1,4 +1,4 @@
-package id.my.hendisantika.estcontainerskafka.config;
+package id.my.hendisantika.testcontainerskafka.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

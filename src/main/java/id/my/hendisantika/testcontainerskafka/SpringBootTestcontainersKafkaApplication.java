@@ -1,6 +1,6 @@
-package id.my.hendisantika.estcontainerskafka;
+package id.my.hendisantika.testcontainerskafka;
 
-import id.my.hendisantika.estcontainerskafka.config.KafkaProperties;
+import id.my.hendisantika.testcontainerskafka.config.KafkaProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

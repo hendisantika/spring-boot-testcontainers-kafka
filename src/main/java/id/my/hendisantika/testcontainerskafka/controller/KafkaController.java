@@ -1,4 +1,4 @@
-package id.my.hendisantika.estcontainerskafka.controller;
+package id.my.hendisantika.testcontainerskafka.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -40,9 +41,9 @@ public class KafkaController {
 
     @GetMapping(path = "/{message}", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(
-            summary = "Get All Tutorials Data",
-            description = "Get All Tutorials Data.",
-            tags = {"Tutorial"})
+            summary = "Send Data",
+            description = "Send Data.",
+            tags = {"Kafka"})
     @ApiResponses(value = {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(
                     description = "Success",
@@ -57,14 +58,13 @@ public class KafkaController {
     }
     )
     public ResponseEntity<String> sendMessage(@PathVariable("message") String message) {
-        CompletableFuture<SendResult<String, String>> future = kafkaTemplate.send(TOPIC, "key",
+        CompletableFuture<SendResult<String, String>> future = kafkaTemplate.send(TOPIC, UUID.randomUUID().toString(),
                 message);
         future.whenComplete((result, ex) -> {
             if (ex == null) {
-                log.info("Sent message=[" + message + "] with offset=["
-                        + result.getRecordMetadata().offset() + "]");
+                log.info("Sent message=[{}] with offset=[{}]", message, result.getRecordMetadata().offset());
             } else {
-                log.warn("Unable to send message=[" + message + "] due to : " + ex.getMessage());
+                log.warn("Unable to send message=[{}] due to : {}", message, ex.getMessage());
             }
         });
         return new ResponseEntity<>(
