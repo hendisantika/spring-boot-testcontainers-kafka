@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>id.my.hendisantika</groupId>
-    <artifactId>estcontainers-kafka</artifactId>
+    <artifactId>testcontainers-kafka</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot-testcontainers-kafka</name>
     <description>spring-boot-testcontainers-kafka</description>
@@ -34,11 +34,13 @@
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.5.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-common</artifactId>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.springdoc</groupId>-->
+        <!--            <artifactId>springdoc-openapi-starter-common</artifactId>-->
+        <!--            <version>2.5.0</version>-->
+        <!--        </dependency>-->
         <!-- Testcontainers -->
         <dependency>
             <groupId>org.testcontainers</groupId>
@@ -89,37 +91,37 @@
         </dependency>
     </dependencies>
 
-    <dependencyManagement>
-        <dependencies>
-            <!-- Swagger -->
-            <dependency>
-                <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-                <version>${springdoc-openapi-starter-webmvc-ui.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi-starter-common</artifactId>
-                <version>${springdoc-openapi-starter-webmvc-ui.version}</version>
-            </dependency>
-            <!-- Testcontainers -->
-            <dependency>
-                <groupId>org.testcontainers</groupId>
-                <artifactId>testcontainers</artifactId>
-                <version>${testcontainers.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.testcontainers</groupId>
-                <artifactId>junit-jupiter</artifactId>
-                <version>${testcontainers-junit-jupiter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.testcontainers</groupId>
-                <artifactId>kafka</artifactId>
-                <version>${testcontainers-kafka.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <!--    <dependencyManagement>-->
+    <!--        <dependencies>-->
+    <!--            &lt;!&ndash; Swagger &ndash;&gt;-->
+    <!--            <dependency>-->
+    <!--                <groupId>org.springdoc</groupId>-->
+    <!--                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>-->
+    <!--                <version>${springdoc-openapi-starter-webmvc-ui.version}</version>-->
+    <!--            </dependency>-->
+    <!--            <dependency>-->
+    <!--                <groupId>org.springdoc</groupId>-->
+    <!--                <artifactId>springdoc-openapi-starter-common</artifactId>-->
+    <!--                <version>${springdoc-openapi-starter-webmvc-ui.version}</version>-->
+    <!--            </dependency>-->
+    <!--            &lt;!&ndash; Testcontainers &ndash;&gt;-->
+    <!--            <dependency>-->
+    <!--                <groupId>org.testcontainers</groupId>-->
+    <!--                <artifactId>testcontainers</artifactId>-->
+    <!--                <version>${testcontainers.version}</version>-->
+    <!--            </dependency>-->
+    <!--            <dependency>-->
+    <!--                <groupId>org.testcontainers</groupId>-->
+    <!--                <artifactId>junit-jupiter</artifactId>-->
+    <!--                <version>${testcontainers-junit-jupiter.version}</version>-->
+    <!--            </dependency>-->
+    <!--            <dependency>-->
+    <!--                <groupId>org.testcontainers</groupId>-->
+    <!--                <artifactId>kafka</artifactId>-->
+    <!--                <version>${testcontainers-kafka.version}</version>-->
+    <!--            </dependency>-->
+    <!--        </dependencies>-->
+    <!--    </dependencyManagement>-->
 
     <build>
         <plugins>
